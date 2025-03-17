@@ -1,6 +1,5 @@
 #include <iostream>
 #include <list>
-#include "human.h"
 #pragma once
 class Map
 {

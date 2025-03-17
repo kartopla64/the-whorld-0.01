@@ -1,8 +1,9 @@
 #include <iostream>
 #include <Windows.h>
 #include "Map.h"
-#include "human.h"
+#include "Entity.h"
 const int HEIGHTANDWIDHT = 16;
+int Last_ID;
 void PrintWhorld(int (&map)[HEIGHTANDWIDHT][HEIGHTANDWIDHT])
 {
 	std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
@@ -14,7 +15,7 @@ void PrintWhorld(int (&map)[HEIGHTANDWIDHT][HEIGHTANDWIDHT])
 		}
 		std::cout << "\n";
 	}
-	std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	std::cout << "\n\n\n";
 }
 int main() {
 
@@ -88,8 +89,8 @@ int main() {
 		}
 		WhorldMapEntity[minivan50.take_x()][minivan50.take_y()] = 5;
 		WhorldMapEntity[Lona.take_x()][Lona.take_y()] = 4;
+		system("cls");
 		PrintWhorld(WhorldMapEntity);
-		//WhorldMapEntity[minivan50.take_x()][minivan50.take_y()] = 0;
 		WhorldMapEntity[Lona.take_x()][Lona.take_y()] = 0;
 
 		Sleep(100);
