@@ -3,7 +3,7 @@
 #include "Map.h"
 #include "Entity.h"
 const int HEIGHTANDWIDHT = 16;
-int Last_ID;
+int Last_ID = 0;
 void PrintWhorld(int (&map)[HEIGHTANDWIDHT][HEIGHTANDWIDHT])
 {
 	std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
