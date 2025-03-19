@@ -6,6 +6,8 @@
 
 const int HEIGHTOFCONSOLE = 48;
 const int WIGHTOFCONSOLE = 208;
+int M_Centr_x;
+int M_Centr_y;
 
 class Map
 {
@@ -14,7 +16,7 @@ class Map
 
 public:
 	Map();
-	void Map_Render();
+	std::vector<std::vector<int>> Map_Render();
 	void create_new_Entity(Entity);
 	void delete_ntt();
 	void goUp();
