@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include "Map.h"
 #include "Entity.h"
-//#include "Functii.h"
+#include "Functii.h"
 #pragma once
 
 int main() {
@@ -36,7 +36,7 @@ int main() {
 			//клавеша D (вправо)
 			Word.goReight();
 		}
-		//Itn_To_Char_Screen(Word.Map_Render());
+		Itn_To_Char_Screen(Word.Map_Render());
 		Sleep(100);
 	}
 	//std::cout << x;

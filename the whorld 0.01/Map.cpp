@@ -2,6 +2,7 @@
 #pragma once
 
 Map::Map()
+: M_HEIGHTOFCONSOLE(0), M_WIGHTOFCONSOLE(0),M_Centr_x(0),M_Centr_y(0)
 {
 }
 
@@ -14,12 +15,12 @@ std::vector<std::vector<int>> Map::Map_Render()
 	}
 	for (int i = 0; i < M_Human_List.size(); i++)
 	{
-		Screen[(M_Human_List[i].take_x() - M_Centr_x) + M_WIGHTOFCONSOLE / 2][(M_Human_List[i].take_y() - M_Centr_y + M_HEIGHTOFCONSOLE / 2)] = 1;
+		Screen[(M_Human_List[i].take_x() - M_Centr_x) + M_WIGHTOFCONSOLE / 2][(M_Human_List[i].take_y() - M_Centr_y + M_HEIGHTOFCONSOLE / 2)] = 2;
 	}
 	return Screen;
 }
 
-void Map::create_new_Entity(Entity New_Entity)
+void Map::add_new_Entity(Entity New_Entity)
 {
 	M_Entitys_List.push_back(New_Entity);
 }
@@ -27,7 +28,6 @@ void Map::create_new_Entity(Entity New_Entity)
 void Map::delete_ntt()
 {
 }
-
 void Map::Set_Wight_And_Height_Of_Console(int Wight,int Height)
 {
 	M_HEIGHTOFCONSOLE = Height;

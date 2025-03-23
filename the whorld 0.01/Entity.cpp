@@ -1,6 +1,7 @@
 #include "Entity.h"
 
 Entity::Entity()
+	: E_name("Non"), E_x(0), E_y(0), E_ID(0), E_age(0)
 {
 	std::cout << "Entity "<< E_name <<" successfully created with auto initialization\n";
 }
@@ -27,6 +28,7 @@ int Entity::take_E_ID()
 }
 
 human::human()
+ : h_pol(0),h_character(0),h_heal(100),h_speed(1),h_strench(10)
 {
 	std::cout << "Human " << E_name << " successfully created with auto initialization\n";
 }

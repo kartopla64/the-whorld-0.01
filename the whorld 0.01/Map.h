@@ -18,8 +18,8 @@ class Map
 public:
 	Map();
 	std::vector<std::vector<int>> Map_Render();
-	void create_new_Entity(Entity);
-	void Set_Wight_And_Height_Of_Console(int,int);
+	void add_new_Entity(Entity);
+	void Set_Wight_And_Height_Of_Console(int, int);
 	void delete_ntt();
 	void goUp();
 	void goLeft();
