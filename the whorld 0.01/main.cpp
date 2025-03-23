@@ -2,14 +2,17 @@
 #include <Windows.h>
 #include "Map.h"
 #include "Entity.h"
-const int HEIGHTOFCONSOLE = 48;
-const int WIGHTOFCONSOLE = 208;
-int main() {
+//#include "Functii.h"
+#pragma once
 
+int main() {
+	int HEIGHTOFCONSOLE = 48;
+	int WIGHTOFCONSOLE = 208;
 	Map Word;
 	Entity Armorstend("Armorstend",1, 1, 001);
 	human Lona(false, 1, 100, 1, 5, "Lona", 0,0, 307);
 	human minivan50(true, 1, 100,10, 5, "minivan50", 10, 10, 1917);
+	Word.Set_Wight_And_Height_Of_Console(WIGHTOFCONSOLE, HEIGHTOFCONSOLE);
 	std::vector<std::vector<int>> Screen(HEIGHTOFCONSOLE, std::vector<int>(WIGHTOFCONSOLE));
 	while (true)
 	{
@@ -33,13 +36,7 @@ int main() {
 			//клавеша D (вправо)
 			Word.goReight();
 		}
-		for (int i = 0; i < HEIGHTOFCONSOLE; i++)
-		{
-			for (int j = 0; j < WIGHTOFCONSOLE; j++)
-			{
-				std::cout << Screen[j][i];
-			}
-		}
+		//Itn_To_Char_Screen(Word.Map_Render());
 		Sleep(100);
 	}
 	//std::cout << x;
