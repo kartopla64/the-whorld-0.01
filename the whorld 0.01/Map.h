@@ -2,6 +2,7 @@
 #include <list>
 #include <vector>
 #include "Entity.h"
+#include "Functii.h"
 #pragma once
 
 
@@ -19,6 +20,7 @@ public:
 	Map();
 	std::vector<std::vector<int>> Map_Render();
 	void add_new_Entity(Entity);
+	void add_new_Human(human);
 	void Set_Wight_And_Height_Of_Console(int, int);
 	void delete_ntt();
 	void goUp();

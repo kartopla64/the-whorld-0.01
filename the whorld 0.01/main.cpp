@@ -13,6 +13,8 @@ int main() {
 	human Lona(false, 1, 100, 1, 5, "Lona", 0,0, 307);
 	human minivan50(true, 1, 100,10, 5, "minivan50", 10, 10, 1917);
 	Word.Set_Wight_And_Height_Of_Console(WIGHTOFCONSOLE, HEIGHTOFCONSOLE);
+	Word.add_new_Entity(Lona);
+	Word.add_new_Human(minivan50);
 	std::vector<std::vector<int>> Screen(HEIGHTOFCONSOLE, std::vector<int>(WIGHTOFCONSOLE));
 	while (true)
 	{
@@ -37,7 +39,7 @@ int main() {
 			Word.goReight();
 		}
 		Itn_To_Char_Screen(Word.Map_Render());
-		Sleep(100);
+		Sleep(5);
 	}
 	//std::cout << x;
 	return 0;
