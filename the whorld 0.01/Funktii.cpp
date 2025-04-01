@@ -14,7 +14,7 @@ void Itn_To_Char_Screen(std::vector<std::vector<int>> int_Screen)
 {
 	char Screen_Char[(LOCAL_HEIGHTOFCONSOLE*LOCAL_WIGHTOFCONSOLE)+1];
 
-	for (int i = 0;i < LOCAL_HEIGHTOFCONSOLE;i++)
+	for (int i = LOCAL_HEIGHTOFCONSOLE - 1;i >= 0;i--)
 	{
 		for (int j=0;j<LOCAL_WIGHTOFCONSOLE;j++)
 		{

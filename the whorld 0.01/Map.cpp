@@ -9,6 +9,7 @@ Map::Map()
 std::vector<std::vector<int>> Map::Map_Render()
 {
 	std::vector<std::vector<int>> Screen(M_WIGHTOFCONSOLE, std::vector <int>(M_HEIGHTOFCONSOLE));
+	std::vector<std::vector<int>> Screen_invers(M_WIGHTOFCONSOLE, std::vector <int>(M_HEIGHTOFCONSOLE));
 	for (int i = 0; i < M_Entitys_List.size(); i++)
 	{
 		if (Check_Distans(M_Entitys_List[i].take_x(), M_Entitys_List[i].take_y(), M_Centr_x, M_Centr_y))
@@ -24,7 +25,14 @@ std::vector<std::vector<int>> Map::Map_Render()
 		Screen[(M_Human_List[i].take_x() - M_Centr_x) + M_WIGHTOFCONSOLE / 2][(M_Human_List[i].take_y() - M_Centr_y + M_HEIGHTOFCONSOLE / 2)] = 2;
 		}
 	}
-	return Screen;
+	for (int i = 0;i < M_HEIGHTOFCONSOLE;i++)
+	{
+		for (int j = 0;j < M_WIGHTOFCONSOLE;j++)
+		{
+			Screen_invers[j][i] = Screen[j][M_HEIGHTOFCONSOLE - (i + 1)];
+		}
+	}
+	return Screen_invers;
 }
 
 void Map::add_new_Entity(Entity New_Entity)
