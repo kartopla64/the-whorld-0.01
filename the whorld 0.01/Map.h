@@ -1,17 +1,31 @@
 #include <iostream>
 #include <list>
-#include "human.h"
+#include <vector>
+#include "Entity.h"
+#include "Functii.h"
 #pragma once
+
+
+
 class Map
 {
-	int map_p[16][16];
-	std::list<int> Entites_List;
+	std::vector<Entity> M_Entitys_List;
+	std::vector<human> M_Human_List;
+	int M_HEIGHTOFCONSOLE;
+	int M_WIGHTOFCONSOLE;
+	int M_Centr_x;
+	int M_Centr_y;
 
 public:
 	Map();
-	void output_info();
-	void dvizenie();
-	void create_new_ntt(int ID);
+	std::vector<std::vector<int>> Map_Render();
+	void add_new_Entity(Entity);
+	void add_new_Human(human);
+	void Set_Wight_And_Height_Of_Console(int, int);
 	void delete_ntt();
+	void goUp();
+	void goLeft();
+	void goDown();
+	void goReight();
 };
 

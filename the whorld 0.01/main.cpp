@@ -1,98 +1,45 @@
 #include <iostream>
 #include <Windows.h>
 #include "Map.h"
-#include "human.h"
-const int HEIGHTANDWIDHT = 16;
-void PrintWhorld(int (&map)[HEIGHTANDWIDHT][HEIGHTANDWIDHT])
-{
-	std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-	for (int i =  0; i < HEIGHTANDWIDHT;i++)
-	{
-		for (int j =  0; j < HEIGHTANDWIDHT; j++)
-		{
-			std::cout << map[j][i] << " ";
-		}
-		std::cout << "\n";
-	}
-	std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-}
-int main() {
+#include "Entity.h"
+#include "Functii.h"
+#pragma once
 
-	Map World_1;
+int main() {
+	int HEIGHTOFCONSOLE = 48;
+	int WIGHTOFCONSOLE = 208;
+	Map Word;
 	Entity Armorstend("Armorstend",1, 1, 001);
 	human Lona(false, 1, 100, 1, 5, "Lona", 0,0, 307);
 	human minivan50(true, 1, 100,10, 5, "minivan50", 10, 10, 1917);
-	std::cout << Lona.take_x() << "\n";
-	std::cout << Lona.take_E_ID() << "\n";
-	int WhorldMap[HEIGHTANDWIDHT][HEIGHTANDWIDHT] =
-	{
-		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
-	};
-	int WhorldMapEntity[HEIGHTANDWIDHT][HEIGHTANDWIDHT] = 
-	{ 
-		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} 
-	};
-	Lona.go(2, 2, WhorldMap[2][2], HEIGHTANDWIDHT);
-	Lona.go(2, -1, WhorldMap[2][2], HEIGHTANDWIDHT);
+	Word.Set_Wight_And_Height_Of_Console(WIGHTOFCONSOLE, HEIGHTOFCONSOLE);
+	Word.add_new_Entity(Lona);
+	Word.add_new_Human(minivan50);
+	std::vector<std::vector<int>> Screen(HEIGHTOFCONSOLE, std::vector<int>(WIGHTOFCONSOLE));
 	while (true)
 	{
 		if (GetAsyncKeyState(0x57))
 		{
 			//клавеша W (вверх)
-			Lona.goUp(WhorldMap[Lona.take_x()][Lona.take_y()-1], HEIGHTANDWIDHT);
+			Word.goUp();
 		}
 		if (GetAsyncKeyState(0x41))
 		{
 			//клавеша A (влево)
-			Lona.goLeft(WhorldMap[Lona.take_x()-1][Lona.take_y()], HEIGHTANDWIDHT);
+			Word.goLeft();
 		}
 		if (GetAsyncKeyState(0x53))
 		{
 			//клавеша S (вниз)
-			Lona.goDown(WhorldMap[Lona.take_x()][Lona.take_y()+1], HEIGHTANDWIDHT);
+			Word.goDown();
 		}
 		if (GetAsyncKeyState(0x44))
 		{
 			//клавеша D (вправо)
-			Lona.goReight(WhorldMap[Lona.take_x()+1][Lona.take_y()], HEIGHTANDWIDHT);
+			Word.goReight();
 		}
-		WhorldMapEntity[minivan50.take_x()][minivan50.take_y()] = 5;
-		WhorldMapEntity[Lona.take_x()][Lona.take_y()] = 4;
-		PrintWhorld(WhorldMapEntity);
-		//WhorldMapEntity[minivan50.take_x()][minivan50.take_y()] = 0;
-		WhorldMapEntity[Lona.take_x()][Lona.take_y()] = 0;
-
-		Sleep(100);
+		Itn_To_Char_Screen(Word.Map_Render());
+		Sleep(5);
 	}
 	//std::cout << x;
 	return 0;
