@@ -3,13 +3,13 @@
 Entity::Entity()
 	: E_name("Non"), E_x(0), E_y(0), E_ID(0), E_age(0)
 {
-	std::cout << "Entity "<< E_name <<" successfully created with auto initialization\n";
+	//std::cout << "Entity "<< E_name <<" successfully created with auto initialization\n";
 }
 
 Entity::Entity(std::string name,int x, int y, int ID)
 	: E_name(name), E_x(x),E_y(y),E_ID(ID),E_age(0)
 {
-	std::cout << "Entity " << E_name << " successfully created with manual initialization\n";
+	//std::cout << "Entity " << E_name << " successfully created with manual initialization\n";
 }
 
 int Entity::take_x()
@@ -28,25 +28,30 @@ int Entity::take_E_ID()
 }
 
 human::human()
- : h_pol(0),h_character(0),h_heal(100),h_speed(1),h_strench(10)
+ : h_pol(0),h_character(0), h_protection(0),h_heal(100),h_speed(1),h_strench(10)
 {
-	std::cout << "Human " << E_name << " successfully created with auto initialization\n";
+	//std::cout << "Human " << E_name << " successfully created with auto initialization\n";
 }
 
-human::human(bool pol, short int charakter, int heal, int speed, int strench)
-	: h_pol(pol), h_character(charakter), h_heal(heal), h_speed(speed), h_strench(strench)
+human::human(bool pol, short int charakter, int protection, int heal, int speed, int strench)
+	: h_pol(pol), h_character(charakter), h_protection(protection), h_heal(heal), h_speed(speed), h_strench(strench)
 {
-	std::cout << "Human " << E_name << " successfully created with manual initialization\n";
+	//std::cout << "Human " << E_name << " successfully created with manual initialization\n";
 }
 
-human::human(bool pol, short int charakter, int heal, int speed, int strenght, std::string name, int x, int y, int ID)
-	: h_pol(pol), h_character(charakter), h_heal(heal), h_speed(speed), h_strench(strenght), Entity(name, x, y, ID)
+human::human(bool pol, short int charakter, int protection, int heal, int speed, int strenght, std::string name, int x, int y, int ID)
+	: h_pol(pol), h_character(charakter), h_protection(protection), h_heal(heal), h_speed(speed), h_strench(strenght), Entity(name, x, y, ID)
 {
 }
 
 void human::take_damage(int damage)
 {
-	h_heal -= damage;
+	h_heal -= damage* (100.0 - h_protection)/100.0;
+}
+
+void human::restore_lives(int lives)
+{
+	h_heal += lives;
 }
 
 void human::go(int x, int y, int mesto, int constantagranizi)
