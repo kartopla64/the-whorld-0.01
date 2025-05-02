@@ -2,8 +2,8 @@
 
 #pragma once
 
-const int LOCAL_HEIGHTOFCONSOLE = 48;
-const int LOCAL_WIGHTOFCONSOLE = 208;
+const int LOCAL_HEIGHTOFCONSOLE = 30;
+const int LOCAL_WIGHTOFCONSOLE = 120;
 
 int genereting_ID()
 {
@@ -14,12 +14,15 @@ void Itn_To_Char_Screen(std::vector<std::vector<int>> int_Screen)
 {
 	char Screen_Char[(LOCAL_HEIGHTOFCONSOLE*LOCAL_WIGHTOFCONSOLE)+1];
 
-	for (int i = LOCAL_HEIGHTOFCONSOLE - 1;i >= 0;i--)
+	for (int i = LOCAL_HEIGHTOFCONSOLE - 1;i >= 0;i--/*int i = 0; i < LOCAL_HEIGHTOFCONSOLE; i++*/)
 	{
 		for (int j=0;j<LOCAL_WIGHTOFCONSOLE;j++)
 		{
 			switch (int_Screen[j][i])
 			{
+			case 0:
+				Screen_Char[i * LOCAL_WIGHTOFCONSOLE + j] = ' ';
+				break;
 			case 1:
 				Screen_Char[i*LOCAL_WIGHTOFCONSOLE + j]  = '1';
 				break;
@@ -27,7 +30,7 @@ void Itn_To_Char_Screen(std::vector<std::vector<int>> int_Screen)
 				Screen_Char[i * LOCAL_WIGHTOFCONSOLE + j] = '2';
 				break;
 			default:
-				Screen_Char[i * LOCAL_WIGHTOFCONSOLE + j] = ' ';
+				Screen_Char[i * LOCAL_WIGHTOFCONSOLE + j] = '?';
 				break;
 			}
 			
